@@ -1,5 +1,6 @@
 <?php
-    require_once('connect/video.php'); 
+    require_once('testconnect.php'); 
+
  ?>
 <!DOCTYPE html>
 <html>
@@ -9,7 +10,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!-- 框架 -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="jquery/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="css/bootstrap.min.css"></script>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -133,20 +134,20 @@
     
     <div class="video1">
         <?php
-            if (!empty($data1)) {
-                foreach ($data1 as $value1) { 
+            if (!empty($data_list)) {
+                foreach ($data_list as $value_list) { 
         ?>
         <div style="margin:0 0 20px 36px;position:relative;float:left;background: #fff;border-radius: 10px;">
 
-            <a href="video.php?course=<?php echo $value1['title']; ?>&c_title=<?php echo $value1['c_title']; ?>#1">
+            <a href="video.php?course=<?php echo $value_list['title']; ?>&c_title=<?php echo $value_list['c_title']; ?>#1">
 
                 <div style="width:240px;height:135px;background:#fcc;border-radius: 10px 10px 0 0;overflow: hidden;">
-                    <img src="<?php echo $value1['picture']; ?>"  style="max-width: 100%;"/>
+                    <img src="<?php echo $value_list['picture']; ?>"  style="max-width: 100%;"/>
                 </div>
 
                 <div style="padding:10px;">
-                    <div><h4 style="margin: 0;color: #333;"><?php echo $value1['title']; ?></h4></div>
-                    <div style="width: 60px;float: left;margin-right: 90px;"><a href="#"><h5 style="color: #666;"><?php echo $value1['teacher']; ?></h5><a></div>
+                    <div><h4 style="margin: 0;color: #333;"><?php echo $value_list['title']; ?></h4></div>
+                    <div style="width: 60px;float: left;margin-right: 90px;"><a href="#"><h5 style="color: #666;"><?php echo $value_list['teacher']; ?></h5><a></div>
                     <div><h5 style="color:#666;float: left;">1234</h5></div>
                 </div>
             </a>

@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Enjoy
-=======
 目前存在的bug
 	1.二级界面的登录打不开
 	2.一级界面和二级界面搜索框的字体太小
@@ -28,4 +25,3 @@
 courselist.php	    video.php 		1
 do.php 		   		video2.php      2
 test.php(video)		video3.php 		3
->>>>>>> initial commit

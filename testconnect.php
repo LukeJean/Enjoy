@@ -4,9 +4,20 @@
 	require_once('connect.php');
 
 	//变量
-	$title = $_GET['course'];
-	$c_title = $_GET['c_title'];
+	@$title = $_GET['course'];
+	@$c_title = $_GET['c_title'];
 
+
+    //视频列表
+    @$sql_list="select * from video where keywords like '%$_GET[c]%'";//按时间排
+    $query_list=mysqli_query($con,$sql_list);//传递给数据库处理，把结果集的地址传递给$query
+    if ($query_list&&mysqli_num_rows($query_list)){
+        while ($row_list=mysqli_fetch_assoc($query_list)){
+            $data_list[]=$row_list;//最终产生的$data是一个二维数组
+        }
+    }else{
+        $data_list=array();
+    }
 
 	//视频
 	$sql_video="select * from chapter where (title like '$title') and (c_title like '$c_title')";
@@ -67,6 +78,17 @@
         }
     }else{
         $data_point=array();
+    }
+
+    //搜索
+    @$sql_search="SELECT * FROM video WHERE title LIKE '%$_POST[keyword]%'";
+    $query_search=mysqli_query($con,$sql_search);//传递给数据库处理，把结果集的地址传递给$query
+    if ($query_search&&mysqli_num_rows($query_search)){
+        while ($row_search=mysqli_fetch_assoc($query_search)){
+            $data_search[]=$row_search;//最终产生的$data是一个二维数组
+        }
+    }else{
+        $data_search=array();
     }
 
  ?>

@@ -1,5 +1,5 @@
 <?php 
-    require_once('connect/video2.php');
+    require_once('testconnect.php');
  ?>
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!-- 框架 -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="jquery/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="css/bootstrap.min.css"></script>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -43,7 +43,7 @@
 </head>
 <body style="">
     <?php
-        if (mysqli_num_rows($query2)==0) {
+        if (mysqli_num_rows($query_search)==0) {
              ?>
              <script type="text/javascript">
                 window.alert('暂无视频');     //弹出修改成功
@@ -63,7 +63,7 @@
 
 <div class="navigation">
     <div class="logo" style="float:left;top:-10px;position:relative;height: 60px;">
-        <a href="index.html"><img src="img/logo.png" style="max-height: 100%;" /></a>
+        <a href="index.php"><img src="img/logo.png" style="max-height: 100%;" /></a>
     </div>
 
     <div class="container" style="width:400px;height: 10px; margin-top: 20px;">
@@ -137,19 +137,19 @@
 	
 	<div class="video1">
         <?php
-            if (!empty($data2)) {
-                foreach ($data2 as $value2) { 
+            if (!empty($data_search)) {
+                foreach ($data_search as $value_search) { 
         ?>
         <div style="margin:0 0 20px 36px;position:relative;float:left;background: #fff;border-radius: 10px;">
-            <a href="test.php?course=<?php echo $value2['title']; ?>&c_title=第一节#1">
+            <a href="test.php?course=<?php echo $value_search['title']; ?>&c_title=第一节#1">
 
                 <div style="width:240px;height:135px;background:#fcc;border-radius: 10px 10px 0 0;overflow: hidden;">
-                    <img src="<?php echo $value2['picture']; ?>"/>
+                    <img src="<?php echo $value_search['picture']; ?>" style="max-width: 100%;"/>
                 </div>
 
                 <div style="padding:10px;">
-                    <div><h4 style="margin: 0;color: #333;"><?php echo $value2['title']; ?></h4></div>
-                    <div style="width: 60px;float: left;margin-right: 90px;"><a href="#"><h5 style="color: #666;"><?php echo $value2['teacher']; ?></h5><a></div>
+                    <div><h4 style="margin: 0;color: #333;"><?php echo $value_search['title']; ?></h4></div>
+                    <div style="width: 60px;float: left;margin-right: 90px;"><a href="#"><h5 style="color: #666;"><?php echo $value_search['teacher']; ?></h5><a></div>
                     <div><h5 style="color:#666;float: left;">1234</h5></div>
                 </div>
             </a>

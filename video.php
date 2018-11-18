@@ -21,7 +21,7 @@
 
 
 
-    <script src="jquery/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
     <!--必要样式-->
@@ -158,8 +158,8 @@
                         }
                     });
                 </script>
-                <script src="script/jquery.min.js"></script>
-                <script src="script/slide.js"></script>
+                <script src="js/jquery.min.js"></script>
+                <script src="js/slide.js"></script>
 
                 <div style="width: 750px; height: 328.117px; margin-top: 20px;">
 
