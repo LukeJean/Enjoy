@@ -345,8 +345,6 @@
                             <li><a href="#no" data-toggle="tab">未解决</a></li>
                         </ul>
                     </div>
-                    <!-- TODO:目前bug，在精华、已解决、未解决的评论中无法显示回复 -->
-                    <!-- TODO:回复之后重定向至上一页还得再刷新一下才能显示 -->
                 <div id="myTabContent" class="tab-content">
                     <div class="tab-pane fade in active" id="all">
                         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-md-offset-2 " style="margin-top:28px; height: auto;">

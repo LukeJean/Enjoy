@@ -64,7 +64,7 @@ function getOk($title,$c_title,$re_id=0,&$result=array(),$spac=0){
 
     $spac = $spac + 5;
 
-    $sql="select * from comment WHERE re_id='$re_id' and title like '$title' and c_title like '$c_title' and tag = 1";
+    $sql="select * from comment WHERE re_id='$re_id' and title like '$title' and c_title like '$c_title' and tag = 3";
 
     @$query=mysqli_query($GLOBALS[con],$sql);
 
@@ -130,7 +130,20 @@ function displayCate($re_id=0,$title,$c_title,$selected=1){
 
         }
 
-        $str.= "<div class='bd-callout bd-callout-info'>".$val['comment']."
+        if($val['tag']==2){
+            //精华
+            $color='bd-callout-info';
+        }elseif ($val['tag']==3) {
+            //已解决
+            $color='bd-callout-success';
+        }elseif ($val['tag']==-1) {
+            //未解决
+            $color='bd-callout-danger';
+        }else{
+            $color='bd-callout-info';
+        }
+
+        $str.= "<div class='bd-callout ".$color."'>".$val['comment']."
         <input type='hidden' name='getid' id='getid' value=".$val['id']." /><a data-toggle='modal' data-target='#mymodal_2' onclick='transmit()'>回复</a></div>";
 
     }
@@ -158,9 +171,9 @@ function displayBest($re_id=0,$title,$c_title,$selected=1){
 
         }
 
-        $str.= "<div><br>".$val['comment']."
+        $str.= "<div class='bd-callout bd-callout-info'>".$val['comment']."
         <input type='hidden' name='getid' id='getid' value=".$val['id']." />
-        <a data-toggle='modal' data-target='#mymodal_2' onclick='transmit()'>回复</a></div><br><br><hr>";
+        <a data-toggle='modal' data-target='#mymodal_2' onclick='transmit()'>回复</a></div>";
 
     }
 
@@ -186,9 +199,9 @@ function displayOk($re_id=0,$title,$c_title,$selected=1){
 
         }
 
-        $str.= "<div><br>".$val['comment']."
+        $str.= "<div class='bd-callout bd-callout-success'>".$val['comment']."
         <input type='hidden' name='getid' id='getid' value=".$val['id']." />
-        <a data-toggle='modal' data-target='#mymodal_2' onclick='transmit()'>回复</a></div><br><br><hr>";
+        <a data-toggle='modal' data-target='#mymodal_2' onclick='transmit()'>回复</a></div>";
 
     }
 
@@ -214,9 +227,9 @@ function displayNo($re_id=0,$title,$c_title,$selected=1){
 
         }
 
-        $str.= "<div><br>".$val['comment']."
+        $str.= "<div class='bd-callout bd-callout-danger'>".$val['comment']."
         <input type='hidden' name='getid' id='getid' value=".$val['id']." />
-        <a data-toggle='modal' data-target='#mymodal_2' onclick='transmit()'>回复</a></div><br><br><hr>";
+        <a data-toggle='modal' data-target='#mymodal_2' onclick='transmit()'>回复</a></div>";
 
     }
 
