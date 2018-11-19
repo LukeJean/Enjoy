@@ -175,20 +175,21 @@
                     </div>
                     <div style="width: 30%; height: 328.117px; float: left; margin-left: 0px; background:white">
                     <!-- border:1px solid #B0C4DE -->
-                        <div style="height: 10%; margin-top: 0px;">
+                        <div style="height: 10%; margin-top: 0px; border-bottom:1px solid #DCDCDC">
                             <center><p style="margin-top: 10px;">猜你喜欢</p></center>
                         </div>
                         <div style="overflow: auto; width: 100%;height: 85%;">
+                            <div style="margin-top:10px;">
                             <?php
                                 if (!empty($data_like)) {
                                     foreach ($data_like as $value_like) { 
                             ?>
-                                        <div style="margin:0 0 20px 36px;position:relative;float:left;background: #fff;border-radius: 10px; width: 70%; " >
+                                        <div style="margin:0 0 20px 36px;position:relative;float:left;background: #fff;border-radius: 10px; width: 70%; border:1px solid #DCDCDC;" >
 
                                             <a href="video.php?course=<?php echo $value_like['title']; ?>&c_title=第一节#1">
 
                                                 <div style="width:100%;height:80px;background:#fcc;border-radius: 10px 10px 0 0;overflow: hidden;">
-                                                    <img src="<?php echo $value_like['picture']; ?>"/>
+                                                    <img src="<?php echo $value_like['picture']; ?>" style="max-width: 100%;"/>
                                                 </div>
 
                                                 <div style="padding:10px;">
@@ -200,6 +201,7 @@
                                     }
                                 } 
                             ?>
+                            </div>
 
                         </div>
                     </div>
