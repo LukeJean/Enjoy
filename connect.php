@@ -1,4 +1,6 @@
 <?php
+	error_reporting(E_ALL^E_WARNING);
+
 	require_once('config.php');//引用数据库配置文件
 	//连库
 	if(!($con=mysqli_connect(HOST,USERNAME,PASSWORD))){
