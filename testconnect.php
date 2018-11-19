@@ -45,7 +45,7 @@
     }
 
     //猜你喜欢
-    $sql_like="SELECT * FROM chapter WHERE search LIKE '$search' ";
+    $sql_like="SELECT * FROM video WHERE search LIKE '$search' ";
     $query_like=mysqli_query($con,$sql_like);
     if ($query_like&&mysqli_num_rows($query_like)){
         while ($row_like=mysqli_fetch_assoc($query_like)){
