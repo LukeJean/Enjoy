@@ -73,10 +73,10 @@
             
             }
         ?>
-        <div class="link2" style=" font-size: 15px;">
+        <div class="link2" style=" font-size: 15px; margin-top:5px;">
             <a href="javascript:void(0)" style="color: black;" class="btn_login" id="btn_showlogin" data-toggle="<?php echo $modal; ?>" data-target="#mymodal"><?php echo $word; ?></a>
         </div>
-        <div class="link" style=" font-size: 15px;">
+        <div class="link" style=" font-size: 15px; margin-top:5px;">
             <a href="" style="color: black;">下载中心</a>
         </div>
     <!-- 模态框 -->
@@ -127,8 +127,9 @@
 
     <div class="container" id="1">
         <div class="row">
-            <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-md-offset-2 " style="">
-                <div id="containerl" >
+            <div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-md-offset-1">
+                <div class="row">
+                <div id="containerl" class="col-md-12 col-sm-12 col-xs-12">
                     <div class="tab-menu tworow">
                         <span id="thirdbg"></span>
                         <ul id="hourlist" style="margin-top: 10px;">
@@ -144,6 +145,7 @@
                                 ?>
                         </ul>                    
                    </div>
+                </div>
                 </div>
                 <script>
                     document.getElementById("thirdbg").style.width="";
@@ -165,15 +167,15 @@
                 <script src="js/jquery.min.js"></script>
                 <script src="js/slide.js"></script>
 
-                <div style="width: 750px; height: 328.117px; margin-top: 20px;">
+                <div>
 
-                    <div style="width:70%; height: 328.117px; float: left; margin-left: 0px;">
+                    <div class="col-md-9 col-sm-9 col-xs-9"style="margin-top:28px;">
                     <!-- 播放器 -->
-                        <video width="100%" height="auto" controls id="player">
+                        <video width="100%" height="328.117px" controls id="player">
                             <source src="<?php echo $row_video['ip']; ?>"  type="video/mp4">
                         </video>
                     </div>
-                    <div style="width: 30%; height: 328.117px; float: left; margin-left: 0px; background:white">
+                    <div style="height: 328.117px;background:white;margin-top:28px;" class="col-md-3 col-sm-3 col-xs-3">
                     <!-- border:1px solid #B0C4DE -->
                         <div style="height: 10%; margin-top: 0px; border-bottom:1px solid #DCDCDC">
                             <center><p style="margin-top: 10px;">猜你喜欢</p></center>
@@ -184,7 +186,7 @@
                                 if (!empty($data_like)) {
                                     foreach ($data_like as $value_like) { 
                             ?>
-                                        <div style="margin:0 0 20px 36px;position:relative;float:left;background: #fff;border-radius: 10px; width: 70%; border:1px solid #DCDCDC;" >
+                                        <div style="margin:0 0 10px 16px;position:relative;float:left;background: #fff;border-radius: 10px; width: 80%; border:1px solid #DCDCDC;" >
 
                                             <a href="video.php?course=<?php echo $value_like['title']; ?>&c_title=第一节#1">
 
@@ -265,19 +267,6 @@
         <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="js/bringins.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         <script>
             $(document).ready(function() {
                 $('#btn').click(function(){
@@ -307,17 +296,22 @@
         </script>
 
         <div class="row">
-            <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-md-offset-2 " style="margin-top: 28px;">
+            <div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-md-offset-1 " style="margin-top: 28px;">
                 <div style="background-color:#FFF; height: 1000px;">
-
-                    <div class="col-md-12 col-sm-12 col-xs-12 " style="margin-top:28px;" >
+                    <div>
+                        <font style="width:150px; float:left; font-family:Tahoma, Geneva, sans-serif; font-size: 24px;margin:14px auto">
+                            &nbsp;&nbsp;答疑&解惑
+                        </font>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-1 col-sm-offset-1 col-md-offset-1" style="margin-top:28px;" >
                         <form style="margin-left: 100px;" action="" method="post" role="form" >
                             <div class="form-group">
                                 <textarea style="width: 120%; " class="form-control" rows="3" name="comment" id="content"></textarea><br>
-                                <button type="submit" name="submit" class="btn btn-primary" >提交</button>
+                                <button type="submit" name="submit" class="btn btn-primary" style="float:right; margin-right:-85px;">提交</button>
                             </div>
                         </form>
                     </div>
+                    
                     <?php
                         if (!(isset($_POST['comment'])&&(!empty($_POST['comment'])))) {
                 
@@ -335,7 +329,7 @@
                         }
                     ?>
 
-                    <div class="col-md-8 col-sm-8 col-xs-8 " style="margin-left: 100px;">
+                    <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-md-offset-2">
                         <ul id="myTab" class="nav nav-tabs">
                             <li class="active">
                                 <a href="#all" data-toggle="tab">
