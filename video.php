@@ -64,13 +64,17 @@
         <?php
             @session_start();
             if(isset($_SESSION['name'])){
+            //如果登录了，显示用户名，改变模态框的链接
                 $word=$_SESSION['name'];
+                $modal='m';
             } else{
                 $word='登录';
+                $modal='modal';
+            
             }
-         ?>
+        ?>
         <div class="link2" style=" font-size: 15px;">
-            <a href="javascript:void(0)" style="color: black;" class="btn_login" id="btn_showlogin" data-toggle="modal" data-target="#mymodal"><?php echo $word; ?></a>
+            <a href="javascript:void(0)" style="color: black;" class="btn_login" id="btn_showlogin" data-toggle="<?php echo $modal; ?>" data-target="#mymodal"><?php echo $word; ?></a>
         </div>
         <div class="link" style=" font-size: 15px;">
             <a href="" style="color: black;">下载中心</a>
