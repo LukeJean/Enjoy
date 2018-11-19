@@ -64,13 +64,17 @@
         <?php
             @session_start();
             if(isset($_SESSION['name'])){
+            //如果登录了，显示用户名，改变模态框的链接
                 $word=$_SESSION['name'];
+                $modal='m';
             } else{
                 $word='登录';
+                $modal='modal';
+            
             }
-         ?>
+        ?>
         <div class="link2" style=" font-size: 15px;">
-            <a href="javascript:void(0)" style="color: black;" class="btn_login" id="btn_showlogin" data-toggle="modal" data-target="#mymodal"><?php echo $word; ?></a>
+            <a href="javascript:void(0)" style="color: black;" class="btn_login" id="btn_showlogin" data-toggle="<?php echo $modal; ?>" data-target="#mymodal"><?php echo $word; ?></a>
         </div>
         <div class="link" style=" font-size: 15px;">
             <a href="" style="color: black;">下载中心</a>
@@ -341,8 +345,6 @@
                             <li><a href="#no" data-toggle="tab">未解决</a></li>
                         </ul>
                     </div>
-                    <!-- TODO:目前bug，在精华、已解决、未解决的评论中无法显示回复 -->
-                    <!-- TODO:回复之后重定向至上一页还得再刷新一下才能显示 -->
                 <div id="myTabContent" class="tab-content">
                     <div class="tab-pane fade in active" id="all">
                         <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-md-offset-2 " style="margin-top:28px; height: auto;">
