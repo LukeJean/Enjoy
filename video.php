@@ -191,7 +191,7 @@
                             ?>
                                         <div style="margin:0 0 10px 16px;position:relative;float:left;background: #fff;border-radius: 10px; width: 80%; border:1px solid #DCDCDC;" >
 
-                                            <a href="video.php?course=<?php echo $value_like['title']; ?>&c_title=第一节#1">
+                                            <a href="video.php?course=<?php echo $value_like['title']; ?>&c_title=<?php echo $value_like['c_title']; ?>#1">
 
                                                 <div style="width:100%;height:80px;background:#fcc;border-radius: 10px 10px 0 0;overflow: hidden;">
                                                     <img src="<?php echo $value_like['picture']; ?>" style="max-width: 100%;"/>
