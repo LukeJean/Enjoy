@@ -1,17 +1,7 @@
 <?php
-require_once('connect.php');
-    $sql="select * from chapter";
-    $query=mysqli_query($con,$sql);
-    if ($query&&mysqli_num_rows($query)) {
-        $row=mysqli_fetch_assoc($query);
+$title=$_GET['title'];
 
-    }else{
-        echo "这个视频不存在";
-        exit;
-    }
-
-
-$file_name = $row['PPT'];
+$file_name = $_GET['PPT'];
  //下载文件名
      $file_dir = "./PPT/";//下载文件存放目录
          //检查文件是否存在
