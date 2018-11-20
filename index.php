@@ -41,7 +41,7 @@
         <div class="search bar6">
             <form action="do.php" method="post">
                 <input placeholder="" name="keyword" type="text">
-                <button type="submit"></button>
+                <button type="submit" value="搜索"></button>
             </form>
         </div>
     </div>
@@ -51,19 +51,35 @@
         if(isset($_SESSION['name'])){
             //如果登录了，显示用户名，改变模态框的链接
             $word=$_SESSION['name'];
-            $modal='m';
+            $modal='dropdown';
         } else{
             $word='登录';
             $modal='modal';
-            
         }
     ?>
+
     <div class="link2" >
         <a href="javascript:void(0)" style="color: black;" class="btn_login" id="btn_showlogin" data-toggle="<?php echo $modal; ?>" data-target="#mymodal"><?php echo $word; ?></a>
     </div>
+
+    <!-- <div class="dropdown link2">
+	    <a type="button" class="dropdown-toggle" id="dropdownMenu1" 
+			data-toggle="dropdown" style="color:black;">
+		    <?php //echo $word; ?>
+		    <span class="caret"></span>
+	    </a>-->
+        
+	   
+
     <div class="link" >
-        <a href="" style="color: black;">下载中心</a>
+        <a href="download.php" style="color: black;">下载中心</a>
     </div>
+
+    <!-- 下线 -->
+    <!-- 基本思路：鼠标移动到用户名那里，显示一个下线的气泡，点击之后下线 -->
+
+    
+
     <!-- 模态框 -->
 
     <div class="modal" id="mymodal" >

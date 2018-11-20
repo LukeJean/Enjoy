@@ -77,7 +77,7 @@
             <a href="javascript:void(0)" style="color: black;" class="btn_login" id="btn_showlogin" data-toggle="<?php echo $modal; ?>" data-target="#mymodal"><?php echo $word; ?></a>
         </div>
         <div class="link" style=" font-size: 15px; margin-top:5px;">
-            <a href="" style="color: black;">下载中心</a>
+            <a href="download.php" style="color: black;">下载中心</a>
         </div>
     <!-- 模态框 -->
 
