@@ -144,7 +144,7 @@ function displayCate($re_id=0,$title,$c_title,$selected=1){
         }
 
         $str.= "<div class='bd-callout ".$color."'>".$val['comment']."
-        <input type='hidden' name='getid' id='getid' value=".$val['id']." /><a data-toggle='modal' data-target='#mymodal_2' onclick='transmit()'>回复</a></div>";
+        <a data-toggle='modal' data-target='#exampleModal' data-whatever='".$val['id']."'>回复</a></div>";
 
     }
 
@@ -172,8 +172,7 @@ function displayBest($re_id=0,$title,$c_title,$selected=1){
         }
 
         $str.= "<div class='bd-callout bd-callout-info'>".$val['comment']."
-        <input type='hidden' name='getid' id='getid' value=".$val['id']." />
-        <a data-toggle='modal' data-target='#mymodal_2' onclick='transmit()'>回复</a></div>";
+        <a data-toggle='modal' data-target='#exampleModal' data-whatever='".$val['id']."'>回复</a></div>";
 
     }
 
@@ -200,8 +199,7 @@ function displayOk($re_id=0,$title,$c_title,$selected=1){
         }
 
         $str.= "<div class='bd-callout bd-callout-success'>".$val['comment']."
-        <input type='hidden' name='getid' id='getid' value=".$val['id']." />
-        <a data-toggle='modal' data-target='#mymodal_2' onclick='transmit()'>回复</a></div>";
+        <a data-toggle='modal' data-target='#exampleModal' data-whatever='".$val['id']."'>回复</a></div>";
 
     }
 
@@ -228,8 +226,7 @@ function displayNo($re_id=0,$title,$c_title,$selected=1){
         }
 
         $str.= "<div class='bd-callout bd-callout-danger'>".$val['comment']."
-        <input type='hidden' name='getid' id='getid' value=".$val['id']." />
-        <a data-toggle='modal' data-target='#mymodal_2' onclick='transmit()'>回复</a></div>";
+        <a data-toggle='modal' data-target='#exampleModal' data-whatever='".$val['id']."'>回复</a></div>";
 
     }
 
@@ -238,24 +235,28 @@ function displayNo($re_id=0,$title,$c_title,$selected=1){
 }
 
 
-
-// echo displayCate(0,1);
-
 ?>
 
-<!-- TODO:每次的id都是26 -->
+<!-- 下边这一段看似很没用，但是，不能删！！！不能删！！！不能删！！！ -->
 
-<script type='text/javascript'>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/doc.css">
+
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
     
-    function transmit(){
-        
-        var idl = document.getElementById("getid").value;    //获取所需传递的参数id
-       
-        $('#idl').val(idl);   
-                // alert('hello');
 
-        delete idl;
-    }
 
-</script>
 
+</body>
+</html>

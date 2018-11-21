@@ -4,13 +4,13 @@ require_once('connect.php');
 
 function writeComment($id){
 
-    @$id=$_POST['idl'];
+    @$id=$_POST['recipient-name'];
 
     @$title=$_GET['title'];
 
     @$c_title=$_GET['c_title'];
 
-    @$replay=$_POST['replay'];
+    @$replay=$_POST['message-text'];
 
     @$insertsql="insert into comment(title,comment,c_title,re_id) values('$title','$replay','$c_title','$id')";
 
