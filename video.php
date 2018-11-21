@@ -82,38 +82,38 @@
     <!-- 模态框 -->
 
         <div class="modal" id="mymodal" >
-        <div class="modal-dialog" style="width: 350px;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button class="close" data-dismiss="modal">&times;</button>
-                    <h4 id="h4">我要登录</h4>
-                </div>
-                
-                <div class="modal-body">
-                    <form class="form-inline" action="login.php" method="post">
-                        <div class="form-group">
-                            <label class="sr-only" for="exampleInputAmount">请输入用户名</label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="input-group">
+            <div class="modal-dialog" style="width: 350px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">&times;</button>
+                        <h4>我要登录</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <form class="form-inline" action="" method="post">
+                            <div class="form-group">
+                                <label class="sr-only" for="userid">请输入用户名</label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="input-group">
                                     <div class="input-group-addon">
                                         
                                             <span class="glyphicon glyphicon-user"></span> User
                                         
                                     </div>
-                                    <input type="text" class="form-control" id="id" name="id" placeholder="请输入用户名">
-                                            
+                                    <input type="text" class="form-control" id="userid" placeholder="请输入用户名" name="id">
                                 </div>
-
-                        </div><br><br><br>
-
-                        <div class="form-group">
-                            <label class="sr-only" for="exampleInputAmount">请输入密码</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                            <br><br><br>
+                            <div class="form-group">
+                                <label class="sr-only" for="userpass">请输入密码</label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         
                                             <span class="glyphicon glyphicon-lock"></span> Pass
                                         
                                     </div>
-                                        <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">             
+                                    <input type="password" class="form-control" id="userpass" placeholder="请输入密码" name="password">
                                 </div>
                         </div><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -230,7 +230,7 @@
                 ?>
         </div>
         <!-- 时间 -->
-        <script>   
+        <script type="text/javascript">   
             var myVid=document.getElementById("player"); 
             myVid.addEventListener("timeupdate",timeupdate);     
             var _endTime; 
@@ -267,8 +267,12 @@
             } 
      
         </script> 
-        <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="js/bringins.js"></script>
+
+
+
+
+
 
         <script>
             $(document).ready(function() {
@@ -392,48 +396,55 @@
                             </div>
                         </div>
                     </div>
-                    </div>
-                    
-
                 </div>
                 <br>
             </div>
         </div>
-        <div class="modal" id="mymodal_2" data-id='<?php echo $value['id']; ?>'>
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button class="close" data-dismiss="modal">&times;</button>
-                        <h4>回复</h4>
-                    </div>
 
-                    <div class="modal-body">
-                        <form role="form" action="replay.php?title=<?php echo $title; ?>&c_title=<?php echo $c_title; ?>" method="post">
-                            <div class="form-group">
-                                <input type="hidden" name="idl" id="idl" value="">
-                                <textarea class="form-control" rows="5" name="replay" id="replay"></textarea>
-                                <br>
-                                <center><input type="submit" name="" class="btn btn-primary"></center>
-                            </div>
-                        </form>
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </div><!--model-->
-
-
-        <!-- <script type="text/javascript">
-    
-            function transmit(){
-        
-                var idl = document.getElementById("getid").value;    //获取所需传递的参数id
-       
-                $('#idl').val(idl);   
-                // alert('hello');
-            }
-
-        </script> -->
     </div> 
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">回复</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" action="replay.php?title=<?php echo $title; ?>&c_title=<?php echo $c_title; ?>" method="post">
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="recipient-name" name='recipient-name'>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="tag" name='tag'>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="message-text" rows='5' name='message-text'></textarea>
+                        </div>
+        
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-primary" value='回复'>
+                </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+
+<script>
+
+    $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) 
+        var recipient = button.data('whatever')
+        var tag = button.data('whatevery') 
+        var modal = $(this)
+        var tag1 = document.getElementById("tag")
+        var idl = document.getElementById("recipient-name")
+        modal.find(tag1).val(tag)
+        modal.find(idl).val(recipient)
+    })
+
+</script>
+
 </body>
 </html>
