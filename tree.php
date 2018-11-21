@@ -144,7 +144,7 @@ function displayCate($re_id=0,$title,$c_title,$selected=1){
         }
 
         $str.= "<div class='bd-callout ".$color."'>".$val['comment']."
-        <a data-toggle='modal' data-target='#exampleModal' data-whatever='".$val['id']."'>回复</a></div>";
+        <a data-toggle='modal' data-target='#exampleModal' data-whatever='".$val['id']."' data-whatevery='".$val['tag']."'>回复</a></div>";
 
     }
 
@@ -172,7 +172,7 @@ function displayBest($re_id=0,$title,$c_title,$selected=1){
         }
 
         $str.= "<div class='bd-callout bd-callout-info'>".$val['comment']."
-        <a data-toggle='modal' data-target='#exampleModal' data-whatever='".$val['id']."'>回复</a></div>";
+        <a data-toggle='modal' data-target='#exampleModal' data-whatever='".$val['id']."' data-whatevery='".$val['tag']."'>回复</a></div>";
 
     }
 
@@ -199,7 +199,7 @@ function displayOk($re_id=0,$title,$c_title,$selected=1){
         }
 
         $str.= "<div class='bd-callout bd-callout-success'>".$val['comment']."
-        <a data-toggle='modal' data-target='#exampleModal' data-whatever='".$val['id']."'>回复</a></div>";
+        <a data-toggle='modal' data-target='#exampleModal' data-whatever='".$val['id']."' data-whatevery='".$val['tag']."'>回复</a></div>";
 
     }
 
@@ -226,7 +226,7 @@ function displayNo($re_id=0,$title,$c_title,$selected=1){
         }
 
         $str.= "<div class='bd-callout bd-callout-danger'>".$val['comment']."
-        <a data-toggle='modal' data-target='#exampleModal' data-whatever='".$val['id']."'>回复</a></div>";
+        <a data-toggle='modal' data-target='#exampleModal' data-whatever='".$val['id']."' data-whatevery='".$val['tag']."'>回复</a></div>";
 
     }
 

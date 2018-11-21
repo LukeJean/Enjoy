@@ -12,7 +12,11 @@ function writeComment($id){
 
     @$replay=$_POST['message-text'];
 
-    @$insertsql="insert into comment(title,comment,c_title,re_id) values('$title','$replay','$c_title','$id')";
+    @$tag=$_POST['tag'];
+
+    echo $tag;
+
+    @$insertsql="insert into comment(tag,title,comment,c_title,re_id) values('$tag','$title','$replay','$c_title','$id')";
 
     if($replay!=''){
         

@@ -404,6 +404,9 @@
                             <input type="hidden" class="form-control" id="recipient-name" name='recipient-name'>
                         </div>
                         <div class="form-group">
+                            <input type="hidden" class="form-control" id="tag" name='tag'>
+                        </div>
+                        <div class="form-group">
                             <textarea class="form-control" id="message-text" rows='5' name='message-text'></textarea>
                         </div>
         
@@ -420,9 +423,13 @@
 
     $('#exampleModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) 
-        var recipient = button.data('whatever') 
+        var recipient = button.data('whatever')
+        var tag = button.data('whatevery') 
         var modal = $(this)
-        modal.find('.modal-body input').val(recipient)
+        var tag1 = document.getElementById("tag")
+        var idl = document.getElementById("recipient-name")
+        modal.find(tag1).val(tag)
+        modal.find(idl).val(recipient)
     })
 
 </script>
