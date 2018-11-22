@@ -250,7 +250,6 @@ function displayNo($re_id=0,$title,$c_title,$selected=1){
 
     <link rel="stylesheet" type="text/css" href="css/reset.css">
 
-    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
