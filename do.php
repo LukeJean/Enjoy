@@ -100,7 +100,7 @@
     ?>
 
     <div class="link2">
-        <a href="javascript:void(0)" style="color: black;" class="btn_login" id="btn_showlogin" data-toggle="<?php echo $modal;?>" data-target="#mymodal"><?php echo $modal; ?></a>
+        <a href="javascript:void(0)" style="color: black;" class="btn_login" id="btn_showlogin" data-toggle="<?php echo $modal;?>" data-target="#mymodal"><?php echo $word; ?></a>
     </div>
     <div class="link" >
             <a href="download.php" style="color: black;">下载中心</a>
@@ -163,7 +163,7 @@
                 foreach ($data_search as $value_search) { 
         ?>
         <div style="margin:0 0 20px 36px;position:relative;float:left;background: #fff;border-radius: 10px;">
-            <a href="test.php?course=<?php echo $value_search['title']; ?>&c_title=第一节#1">
+            <a href="video.php?course=<?php echo $value_search['title']; ?>&c_title=<?php echo $value_search['c_title']; ?>#1">
 
                 <div style="width:240px;height:135px;background:#fcc;border-radius: 10px 10px 0 0;overflow: hidden;">
                     <img src="<?php echo $value_search['picture']; ?>" style="max-width: 100%;"/>

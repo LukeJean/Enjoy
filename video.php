@@ -157,7 +157,7 @@
                         <form class="form-inline" action="" method="post">
                             <div class="form-group">
                                 <label class="sr-only" for="userid">请输入用户名</label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         
@@ -170,7 +170,7 @@
                             <br><br><br>
                             <div class="form-group">
                                 <label class="sr-only" for="userpass">请输入密码</label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         
@@ -179,7 +179,7 @@
                                     </div>
                                     <input type="password" class="form-control" id="userpass" placeholder="请输入密码" name="password">
                                 </div>
-                        </div><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </div><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary btn-lg btn-block" style="width: 245.117px;" value="登录">
