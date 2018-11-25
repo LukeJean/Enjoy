@@ -1,5 +1,15 @@
 <?php 
-    require_once('testconnect.php');
+    require_once('connect.php');
+     //搜索
+    @$sql_search="SELECT * FROM video WHERE title LIKE '%$_POST[keyword]%'";
+    $query_search=mysqli_query($con,$sql_search);//传递给数据库处理，把结果集的地址传递给$query
+    if ($query_search&&mysqli_num_rows($query_search)){
+        while ($row_search=mysqli_fetch_assoc($query_search)){
+            $data_search[]=$row_search;//最终产生的$data是一个二维数组
+        }
+    }else{
+        $data_search=array();
+    }
  ?>
 <!DOCTYPE html>
 <html>

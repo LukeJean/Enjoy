@@ -1,5 +1,26 @@
 <?php
-    require_once('testconnect.php');
+    require_once('connect.php');
+    //搜索课件
+    @$sql_doc="SELECT * FROM chapter WHERE title LIKE '%$_POST[doc]%'";
+    $query_doc=mysqli_query($con,$sql_doc);
+    if ($query_doc&&mysqli_num_rows($query_doc)){
+        while ($row_doc=mysqli_fetch_assoc($query_doc)){
+            $data_doc[]=$row_doc;
+        }
+    }else{
+        $data_doc=array();
+    }
+
+    //所有课件显示
+     @$sql_every="SELECT * FROM chapter where PPT != ''";
+    $query_every=mysqli_query($con,$sql_every);
+    if ($query_every&&mysqli_num_rows($query_every)){
+        while ($row_every=mysqli_fetch_assoc($query_every)){
+            $data_every[]=$row_every;
+        }
+    }else{
+        $data_every=array();
+    }
 ?>
 <!DOCTYPE html>
 <html>
