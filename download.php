@@ -25,6 +25,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.ico" />
     <meta charset="utf-8" />
     <title>下载中心</title>
     <!-- bootstrap框架 -->
