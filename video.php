@@ -28,7 +28,7 @@
     }
 
     //猜你喜欢
-    $sql_like="SELECT * FROM video WHERE search LIKE '$search' ";
+    $sql_like="SELECT * FROM video WHERE search LIKE '$search' AND title != '$title' ";
     $query_like=mysqli_query($con,$sql_like);
     if ($query_like&&mysqli_num_rows($query_like)){
         while ($row_like=mysqli_fetch_assoc($query_like)){
@@ -154,9 +154,9 @@
                     </div>
 
                     <div class="modal-body">
-                        <form class="form-inline" action="" method="post">
+                        <form class="form-inline" action="login.php" method="post">
                             <div class="form-group">
-                                <label class="sr-only" for="userid">请输入用户名</label>
+                                <label class="sr-only" for="userid">请输入学号</label>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <div class="input-group">
                                     <div class="input-group-addon">
@@ -164,7 +164,7 @@
                                             <span class="glyphicon glyphicon-user"></span> User
                                         
                                     </div>
-                                    <input type="text" class="form-control" id="userid" placeholder="请输入用户名" name="id">
+                                    <input type="text" class="form-control" id="userid" placeholder="请输入学号" name="id">
                                 </div>
                             </div>
                             <br><br><br>
@@ -214,6 +214,7 @@
                    </div>
                 </div>
                 </div>
+                <script src="js/slide.js"></script>
                 <script>
                     document.getElementById("thirdbg").style.width="";
                         new Slideicon($("#list"),{
@@ -231,23 +232,22 @@
                         }
                     });
                 </script>
-                <script src="js/jquery.min.js"></script>
-                <script src="js/slide.js"></script>
+               
 
                 <div>
 
                     <div class="col-md-9 col-sm-9 col-xs-9"style="margin-top:28px;">
                     <!-- 播放器 -->
-                        <video width="100%" height="328.117px" controls id="player">
+                        <video width="100%" height="395px" controls id="player">
                             <source src="<?php echo $row_video['ip']; ?>"  type="video/mp4">
                         </video>
                     </div>
-                    <div style="height: 328.117px;background:white;margin-top:28px;" class="col-md-3 col-sm-3 col-xs-3">
+                    <div style="height: 389px;background:white;margin-top:28px;" class="col-md-3 col-sm-3 col-xs-3">
                     <!-- border:1px solid #B0C4DE -->
                         <div style="height: 10%; margin-top: 0px; border-bottom:1px solid #DCDCDC">
                             <center><p style="margin-top: 10px;">猜你喜欢</p></center>
                         </div>
-                        <div style="overflow: auto; width: 100%;height: 85%;">
+                        <div style="overflow: auto;  width: 100%;height: 85%;">
                             <div style="margin-top:10px;">
                             <?php
                                 if (!empty($data_like)) {

@@ -118,14 +118,14 @@
                 <div class="modal-body">
                     <form class="form-inline">
                         <div class="form-group">
-                            <label class="sr-only" for="exampleInputAmount">请输入用户名</label>
+                            <label class="sr-only" for="exampleInputAmount">请输入学号</label>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="input-group">
                                     <div class="input-group-addon">
                                         
                                             <span class="glyphicon glyphicon-user"></span> User
                                         
                                     </div>
-                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入用户名">
+                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入学号">
                                             
                                 </div>
 
@@ -165,14 +165,14 @@
         <div style="margin:0 0 20px 36px;position:relative;float:left;background: #fff;border-radius: 10px;">
             <a href="video.php?course=<?php echo $value_search['title']; ?>&c_title=<?php echo $value_search['c_title']; ?>#1">
 
-                <div style="width:240px;height:135px;background:#fcc;border-radius: 10px 10px 0 0;overflow: hidden;">
+                <div style="width:240px;height:135px;background:white;border-radius: 10px 10px 0 0;overflow: hidden;">
                     <img src="<?php echo $value_search['picture']; ?>" style="max-width: 100%;"/>
                 </div>
 
                 <div style="padding:10px;">
                     <div><h4 style="margin: 0;color: #333;"><?php echo $value_search['title']; ?></h4></div>
                     <div style="width: 60px;float: left;margin-right: 90px;"><a href="#"><h5 style="color: #666;"><?php echo $value_search['teacher']; ?></h5><a></div>
-                    <div><h5 style="color:#666;float: left;">1234</h5></div>
+                    <div><h5 style="color:#666;float: left;">&nbsp;</h5></div>
                 </div>
             </a>
         </div>

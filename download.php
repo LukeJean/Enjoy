@@ -97,14 +97,14 @@
                 <div class="modal-body">
                     <form class="form-inline" action="login.php" method="post">
                         <div class="form-group">
-                            <label class="sr-only" for="exampleInputAmount">请输入用户名</label>
+                            <label class="sr-only" for="exampleInputAmount">请输入学号</label>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="input-group">
                                     <div class="input-group-addon">
                                         
                                             <span class="glyphicon glyphicon-user"></span> User
                                         
                                     </div>
-                                    <input type="text" class="form-control" id="id" name="id" placeholder="请输入用户名">
+                                    <input type="text" class="form-control" id="id" name="id" placeholder="请输入学号">
                                             
                                 </div>
 
@@ -162,6 +162,8 @@
                         </a>
                         <?php
                                 }
+                            }else{
+                                 echo "<center><h4>正在维护中，等待管理员添加课件</h4></center>";
                             }
                         ?>
                     </div>
@@ -170,8 +172,9 @@
         </div>
     </div>
 </div>
- 
-<div class="container" id="1" style="margin-top:28px;">
+ <!--[if lt IE 9]>
+
+ <div class="container" id="1" style="margin-top:28px;">
     <div class="row">
         <div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-md-offset-1">
             <div class="row">
@@ -202,7 +205,7 @@
         </div>
     </div>
 </div>
-
+<![endif]-->
 
 </body>
 </html>
