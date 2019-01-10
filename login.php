@@ -9,7 +9,7 @@
 
 		//思路：先从数据库里边取用户名密码，然后正则匹配，如果正确，返回1，不正确返回0
 
-		$sql="select * from users WHERE name like '$username' ";
+		$sql="select * from users WHERE student_id like '$username' ";
 
     	@$query=mysqli_query($GLOBALS[con],$sql);
 
@@ -43,7 +43,9 @@
 
 				session_start();
 
-				$_SESSION['name']=$username;
+				$name = $val['name'];
+
+				$_SESSION['name']=$name;
 
 				echo "<script>
 						alert('登录成功');
