@@ -52,23 +52,30 @@
             //如果登录了，显示用户名，改变模态框的链接
             $word=$_SESSION['name'];
             $modal='dropdown';
+            $display = 'yes';
+            $data_target = '1';
         } else{
             $word='登录';
             $modal='modal';
+            $display = 'none';
+            $data_target = '#mymodal';
         }
     ?>
 
-    <div class="link2" >
-        <a href="javascript:void(0)" style="color: black;" class="btn_login" id="btn_showlogin" data-toggle="<?php echo $modal; ?>" data-target="#mymodal"><?php echo $word; ?></a>
-    </div>
+    <!-- <div class="link2" >
+        <a href="javascript:void(0)" style="color: black;" class="btn_login" id="btn_showlogin" data-toggle="<?php //echo $modal; ?>" data-target="#mymodal"><?php //echo $word; ?></a>
+    </div> -->
 
-    <!-- <div class="dropdown link2">
-	    <a type="button" class="dropdown-toggle" id="dropdownMenu1" 
-			data-toggle="dropdown" style="color:black;">
-		    <?php //echo $word; ?>
-		    <span class="caret"></span>
-	    </a>-->
-        
+    <div class="dropdown link2">
+	    <a type="button" class="dropdown-toggle btn_login" id="btn_showlogin" style="color:black;" href="javascript:void(0)" data-toggle="<?php echo $modal; ?>" data-target="<?php echo $data_target;?>">
+		    <?php echo $word; ?>
+		    <span class="caret"  style="display: <?php echo $display; ?>;"></span>
+	    </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="display:<?php echo $display; ?>;">
+            <li><a href="logout.php" style="color: black;">注销登录</a></li>
+        </ul>
+    </div>
+    <!-- data-toggle="dropdown" -->
 	   
 
     <div class="link" >
@@ -119,7 +126,7 @@
                         </div><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                         <div class="form-group">
-                            <input type="submit" class="btn btn-primary btn-lg btn-block" style="width: 245.117px;" value="登录">
+                            <input type="submit" class="btn btn-primary btn-lg login btn-block" style="width: 245.117px;" value="登录">
                         </div>
                     </form>
                     <br>
@@ -129,6 +136,38 @@
     </div>
 
 </div>
+<!-- ajax提交登录信息 -->
+                  <!--   <script type="text/javascript">
+                        $(".login").click(function(){ 
+                            // alert("登录按钮");
+                            var id = $(this).attr("data_id");
+                            $('#data').attr('value',id);
+                            $.ajax({ 
+                                type: "POST",   
+                                url: "login.php",
+                                data: {
+                                    id: id
+                                },
+                                dataType: "json",
+                                success: function(data){
+
+                                    if (data.success) { 
+                                        $(changevideo_name).attr('value',data.title);
+                                        $(changeteacher_name).attr('value',data.teacher);
+                                        $(changefirst_name).attr('value',data.first);
+                                        $(changelable_name).attr('value',data.lable);
+                                        // $(img).attr('src',data.picture);
+                                        $("#changewidth").find("option:contains('"+data.width+"')").selected=true;
+                                        $("#changeheight").find("option:contains('"+data.height+"')").selected=true;
+                                    } else {
+                                    // $("#mod").html("出现错误：" + data.msg);
+                                    }  
+                                },
+                                error: function(jqXHR){     
+                                    alert("发生错误：" + jqXHR.status);  
+                                },     
+                            });
+                    </script> -->
 <div class="container">
 <div class="main" >
     
