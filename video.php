@@ -131,10 +131,11 @@
             //如果登录了，显示用户名，改变模态框的链接
                 $word=$_SESSION['name'];
                 $modal='m';
+                $re_name = $_SESSION['name'];
             } else{
                 $word='登录';
                 $modal='modal';
-            
+                $re_name = "匿名";
             }
         ?>
         <div class="link2" style=" font-size: 15px; margin-top:5px;">
@@ -389,7 +390,7 @@
                         }
                         //TODO:评论的回车bug
                         @$comment=$_POST['comment'];
-                        $insertsql="insert into comment(title,comment,c_title) values('$title','$comment','$c_title')";
+                        $insertsql="insert into comment(title,comment,c_title,user) values('$title','$comment','$c_title','$re_name')";
                         if($comment!=''){
                             mysqli_query($con,$insertsql);
                     ?>
