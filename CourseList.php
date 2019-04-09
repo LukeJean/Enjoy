@@ -22,6 +22,7 @@
     <!-- 框架 -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="css/bootstrap.min.css"></script>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -107,43 +108,43 @@
     <!-- 模态框 -->
 
     <div class="modal" id="mymodal" >
-        <div class="modal-dialog" style="width: 350px;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button class="close" data-dismiss="modal">&times;</button>
-                    <h4>我要登录</h4>
-                </div>
-                
-                <div class="modal-body">
-                    <form class="form-inline" action="login.php" method="post">
-                        <div class="form-group">
-                            <label class="sr-only" for="exampleInputAmount">请输入学号</label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="input-group">
+            <div class="modal-dialog" style="width: 350px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">&times;</button>
+                        <h4>我要登录</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <form class="form-inline" action="login.php" method="post">
+                            <div class="form-group">
+                                <label class="sr-only" for="userid">请输入学号</label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="input-group">
                                     <div class="input-group-addon">
                                         
                                             <span class="glyphicon glyphicon-user"></span> User
                                         
                                     </div>
-                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入学号">
-                                            
+                                    <input type="text" class="form-control" id="userid" placeholder="请输入学号" name="id">
                                 </div>
-
-                        </div><br><br><br>
-
-                        <div class="form-group">
-                            <label class="sr-only" for="exampleInputAmount">请输入密码</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                            <br><br><br>
+                            <div class="form-group">
+                                <label class="sr-only" for="userpass">请输入密码</label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         
                                             <span class="glyphicon glyphicon-lock"></span> Pass
                                         
                                     </div>
-                                        <input type="password" class="form-control" id="exampleInputAmount" placeholder="请输入密码">             
+                                    <input type="password" class="form-control" id="userpass" placeholder="请输入密码" name="password">
                                 </div>
-                        </div><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </div><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                         <div class="form-group">
-                            <button type="button" class="btn btn-primary btn-lg btn-block" style="width: 245.117px;">登录</button>
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" style="width: 245.117px;" value="登录">
                         </div>
                     </form>
                     <br>
@@ -151,8 +152,7 @@
             </div>
         </div>
     </div>
-
-</div>
+    </div>
 <div id="main" class="container">
 
     
