@@ -139,6 +139,7 @@
                 $modal='modal';
                 $display = 'none';
                 $data_target = '#mymodal';
+                $re_name = "匿名";
             }
         ?>
         <div class="dropdown link2">
