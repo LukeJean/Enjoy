@@ -207,7 +207,7 @@ form {
     cursor: pointer;
 }
 .tworow{
-    width: 750px;
+    width: 100%;
     height: 40px;
     background-color: rgba(224, 229, 232, 1);
 }

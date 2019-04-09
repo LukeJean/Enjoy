@@ -1,0 +1,113 @@
+input,
+.textarea {
+    outline: none;
+    border: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    font-family: "PT Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+    font-size: 2rem;
+    color: #555f77;
+}
+input::-webkit-input-placeholder,
+.textarea::-webkit-input-placeholder {
+    color: #ced2db;
+}
+input::-moz-placeholder,
+.textarea::-moz-placeholder {
+    color: #ced2db;
+}
+input:-moz-placeholder,
+.textarea:-moz-placeholder {
+    color: #ced2db;
+}
+input:-ms-input-placeholder,
+.textarea:-ms-input-placeholder {
+    color: #ced2db;
+}
+p {
+    line-height: 1.3125rem;
+}
+.comments {
+    margin: 2.5rem auto 0;
+    max-width: 60.75rem;
+    padding: 0 1.25rem;
+}
+.comment-wrap {
+    margin-bottom: 1.25rem;
+    display: table;
+    width: 90%;
+    min-height: 5.3125rem;
+    margin-left: 2rem;
+}
+.photo {
+    padding-top: 0.625rem;
+    display: table-cell;
+    width: 3.5rem;
+    position:relative;   
+    left:-2rem;
+    /*top:150px;       */
+}
+.username{
+    position:relative;   
+    left:4rem;
+    top: -2rem;
+}
+.photo .touxiang {
+    height: 3.25rem;
+    width: 3.25rem;
+    border-radius: 50%;
+    background-size: contain;
+}
+.comment-block {
+
+    padding: 1rem;
+    width: 100%;
+    background-color: #fff;
+    display: table-cell;
+    vertical-align: top;
+    border-radius: 0.1875rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+    position:relative; 
+    left: -2rem;  
+    top: 4rem;
+}
+.comment-block textarea {
+    width: 100%;
+    max-width: 100%;
+}
+.comment-text {
+    line-height: 2.5rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.5rem;
+}
+.bottom-comment {
+    color: #acb4c2;
+    font-size: 1rem;
+}
+.comment-date {
+    float: left;
+}
+.comment-actions {
+    float: right;
+}
+.comment-actions li {
+    display: inline;
+}
+.comment-actions li.complain {
+    padding-right: 0.625rem;
+    border-right: 1px solid #e1e5eb;
+}
+.comment-actions li.reply {
+    padding-left: 0.625rem;
+}
+.tab{
+    margin-top: 5rem;
+}
+.hr{
+    color: black;
+    position:relative; 
+    left: -13rem;  
+    top: 6rem;
+}

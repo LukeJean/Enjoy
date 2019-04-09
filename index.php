@@ -35,7 +35,7 @@
 <body>
 <div class="navigation">
     <div class="logo" style="float:left;top:-10px;position:relative;height: 60px;">
-        <a href="index.html"><img src="img/logo.png" style="max-height: 100%;" /></a>
+        <a href="index.php"><img src="img/logo.png" style="max-height: 100%;" /></a>
     </div>
     <div class="container" style="width:400px;height: 10px; margin-top: 20px;">
         <div class="search bar6">
@@ -52,23 +52,30 @@
             //如果登录了，显示用户名，改变模态框的链接
             $word=$_SESSION['name'];
             $modal='dropdown';
+            $display = 'yes';
+            $data_target = '1';
         } else{
             $word='登录';
             $modal='modal';
+            $display = 'none';
+            $data_target = '#mymodal';
         }
     ?>
 
-    <div class="link2" >
-        <a href="javascript:void(0)" style="color: black;" class="btn_login" id="btn_showlogin" data-toggle="<?php echo $modal; ?>" data-target="#mymodal"><?php echo $word; ?></a>
-    </div>
+    <!-- <div class="link2" >
+        <a href="javascript:void(0)" style="color: black;" class="btn_login" id="btn_showlogin" data-toggle="<?php //echo $modal; ?>" data-target="#mymodal"><?php //echo $word; ?></a>
+    </div> -->
 
-    <!-- <div class="dropdown link2">
-	    <a type="button" class="dropdown-toggle" id="dropdownMenu1" 
-			data-toggle="dropdown" style="color:black;">
-		    <?php //echo $word; ?>
-		    <span class="caret"></span>
-	    </a>-->
-        
+    <div class="dropdown link2">
+	    <a type="button" class="dropdown-toggle btn_login" id="btn_showlogin" style="color:black;" href="javascript:void(0)" data-toggle="<?php echo $modal; ?>" data-target="<?php echo $data_target;?>">
+		    <?php echo $word; ?>
+		    <span class="caret"  style="display: <?php echo $display; ?>;"></span>
+	    </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="display:<?php echo $display; ?>;">
+            <li><a href="logout.php" style="color: black;">注销登录</a></li>
+        </ul>
+    </div>
+    <!-- data-toggle="dropdown" -->
 	   
 
     <div class="link" >
@@ -93,14 +100,14 @@
                 <div class="modal-body">
                     <form class="form-inline" action="login.php" method="post">
                         <div class="form-group">
-                            <label class="sr-only" for="exampleInputAmount">请输入用户名</label>
+                            <label class="sr-only" for="exampleInputAmount">请输入学号</label>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="input-group">
                                     <div class="input-group-addon">
                                         
                                             <span class="glyphicon glyphicon-user"></span> User
                                         
                                     </div>
-                                    <input type="text" class="form-control" id="id" name="id" placeholder="请输入用户名">
+                                    <input type="text" class="form-control" id="id" name="id" placeholder="请输入学号">
                                             
                                 </div>
 
@@ -119,7 +126,7 @@
                         </div><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                         <div class="form-group">
-                            <input type="submit" class="btn btn-primary btn-lg btn-block" style="width: 245.117px;" value="登录">
+                            <input type="submit" class="btn btn-primary btn-lg login btn-block" style="width: 245.117px;" value="登录">
                         </div>
                     </form>
                     <br>
@@ -129,6 +136,38 @@
     </div>
 
 </div>
+<!-- ajax提交登录信息 -->
+                  <!--   <script type="text/javascript">
+                        $(".login").click(function(){ 
+                            // alert("登录按钮");
+                            var id = $(this).attr("data_id");
+                            $('#data').attr('value',id);
+                            $.ajax({ 
+                                type: "POST",   
+                                url: "login.php",
+                                data: {
+                                    id: id
+                                },
+                                dataType: "json",
+                                success: function(data){
+
+                                    if (data.success) { 
+                                        $(changevideo_name).attr('value',data.title);
+                                        $(changeteacher_name).attr('value',data.teacher);
+                                        $(changefirst_name).attr('value',data.first);
+                                        $(changelable_name).attr('value',data.lable);
+                                        // $(img).attr('src',data.picture);
+                                        $("#changewidth").find("option:contains('"+data.width+"')").selected=true;
+                                        $("#changeheight").find("option:contains('"+data.height+"')").selected=true;
+                                    } else {
+                                    // $("#mod").html("出现错误：" + data.msg);
+                                    }  
+                                },
+                                error: function(jqXHR){     
+                                    alert("发生错误：" + jqXHR.status);  
+                                },     
+                            });
+                    </script> -->
 <div class="container">
 <div class="main" >
     
@@ -156,13 +195,13 @@
 			<!-- 轮播（Carousel）项目 -->
 			<div class="carousel-inner" style="float: left; width: 100%; height: 333px;border-radius: 0 10px 0 0;">
 				<div class="item active">
-					<a href="video.php?course=Vue&c_title=第一节#1"><img src="img/Vue.png" alt="First slide"></a>
+					<a href="video.php?course=Vue&c_title=01.反馈#1"><img src="img/Vue.png" alt="First slide"></a>
 				</div>
 				<div class="item">
-					<a href="video.php?tid=1"><img src="img/bootstrap.png" alt="Second slide"></a>
+					<a href="video.php?course=bootstrap&c_title=01-课程概要#1"><img src="img/bootstrap.png" alt="Second slide"></a>
 				</div>
 				<div class="item">
-					<a href="video.php?tid=1"><img src="img/laravel.png" alt="Third slide"></a>
+					<a href="video.php?course=Laravel&c_title=1.1Laravel5.2框架基础 开发的博客项目介绍#1"><img src="img/laravel.png" alt="Third slide"></a>
 				</div>
 			</div>
 			<!-- 轮播（Carousel）导航 -->
@@ -182,15 +221,57 @@
     </div>
     <div class="tabs tabs-style-iconbox" style="border-radius:0 0 10px 10px;font-size:2em;">
         <nav>
-          <ul>
-			<li><a href="CourseList.php?c=English"><svg class="icon" aria-hidden="true" style="margin-bottom:3px"><use xlink:href="#icon-cet"></use></svg><br><span>大学英语四六级</span></a></li>
-			
-			<li><a href="CourseList.php?c=computer"><svg class="icon" aria-hidden="true" style="margin-bottom:3px"><use xlink:href="#icon-jisuanji"></use></svg><br><span>计算机等级考试</span></a></li>
-			<li><a href="CourseList.php?c=innovate"><svg class="icon" aria-hidden="true" style="margin-bottom:3px"><use xlink:href="#icon-huiji"></use></svg><br><span>创新创业</span></a></li>
-			<li><a href="CourseList.php?c=accounting"><svg class="icon" aria-hidden="true" style="margin-bottom:3px"><use xlink:href="#icon-huiji1"></use></svg><br><span>注册会计师</span></a></li>
-            <li><a href="CourseList.php?c=law"><svg class="icon" aria-hidden="true" style="margin-bottom:3px"><use xlink:href="#icon-lvshi1"></use></svg><br><span>国家司法考试</span></a></li>
-			
-          </ul>
+            <ul>
+                <li>
+                    <a href="CourseList.php?c=English">
+                        <svg class="icon" aria-hidden="true" style="margin-bottom:3px">
+                            <use xlink:href="#icon-cet"></use>
+                        </svg><br>
+                        <span>英语</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="CourseList.php?c=computer">
+                        <svg class="icon" aria-hidden="true" style="margin-bottom:3px">
+                            <use xlink:href="#icon-jisuanji"></use>
+                        </svg><br>
+                        <span>计算机</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="CourseList.php?c=innovate">
+                        <svg class="icon" aria-hidden="true" style="margin-bottom:3px">
+                            <use xlink:href="#icon-huiji"></use>
+                        </svg><br>
+                        <span>创新创业</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="CourseList.php?c=accounting">
+                        <svg class="icon" aria-hidden="true" style="margin-bottom:3px">
+                            <use xlink:href="#icon-huiji1"></use>
+                        </svg><br>
+                        <span>注册会计师</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="CourseList.php?c=law">
+                        <svg class="icon" aria-hidden="true" style="margin-bottom:3px">
+                            <use xlink:href="#icon-lvshi1"></use>
+                        </svg><br>
+                        <span>国家司法考试</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="CourseList.php?c=master">
+                        <svg class="icon" aria-hidden="true" style="margin-bottom:3px">
+                            <use xlink:href="#icon-lvshi"></use>
+                        </svg><br>
+                        <span>考研</span>
+                    </a>
+                </li>
+            </ul>
         </nav>
         <div class="content-wrap">
           <section id="section-iconbox-1">

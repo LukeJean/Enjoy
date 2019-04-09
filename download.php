@@ -1,9 +1,34 @@
 <?php
-    require_once('testconnect.php');
+    require_once('connect.php');
+    //搜索课件
+    @$sql_doc="SELECT * FROM chapter WHERE title LIKE '%$_POST[doc]%'";
+    $query_doc=mysqli_query($con,$sql_doc);
+    if ($query_doc&&mysqli_num_rows($query_doc)){
+        while ($row_doc=mysqli_fetch_assoc($query_doc)){
+            $data_doc[]=$row_doc;
+        }
+    }else{
+        $data_doc=array();
+    }
+
+    //课件显示
+    $sql_every="select * from chapter where PPT != ' '";
+
+    @$query_every = mysqli_query($GLOBALS[con],$sql_every);
+    // @$sql_every="SELECT * FROM chapter where PPT != ''";
+    // $query_every=mysqli_query($con,$sql_every);
+    if ($query_every&&mysqli_num_rows($query_every)){
+        while ($row_every=mysqli_fetch_assoc($query_every)){
+            $data_every[]=$row_every;
+        }
+    }else{
+        $data_every=array();
+    }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.ico" />
     <meta charset="utf-8" />
     <title>下载中心</title>
     <!-- bootstrap框架 -->
@@ -75,14 +100,14 @@
                 <div class="modal-body">
                     <form class="form-inline" action="login.php" method="post">
                         <div class="form-group">
-                            <label class="sr-only" for="exampleInputAmount">请输入用户名</label>
+                            <label class="sr-only" for="exampleInputAmount">请输入学号</label>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="input-group">
                                     <div class="input-group-addon">
                                         
                                             <span class="glyphicon glyphicon-user"></span> User
                                         
                                     </div>
-                                    <input type="text" class="form-control" id="id" name="id" placeholder="请输入用户名">
+                                    <input type="text" class="form-control" id="id" name="id" placeholder="请输入学号">
                                             
                                 </div>
 
@@ -127,60 +152,57 @@
         <div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-md-offset-1">
             <div class="row">
                 <div id="containerl" class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="list-group">
-
-                         <?php
-                            if (!empty($data_every)) {
-                                foreach ($data_every as $value_every) { 
-                        ?>
-                        <a href="downloadFile.php?title=<?php echo $value_every['title']?>&PPT=<?php echo $value_every['PPT']?>" class="list-group-item">
-                            <?php
-                                echo $value_every['title']."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$value_every['c_title'];
-                            ?>
-                        </a>
+                    <table class="table">
+                        <thead style="background-color: black;color:white;">
+                            <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">课程名称</th>
+                                <th scope="col">章节名称</th>
+                                <th scope="col">课件</th>
+                                <th scope="col">操作</th>
+                            </tr>
+                        </thead>
                         <?php
-                                }
-                            }
+
+                            $page_sql="select * from chapter where PPT != ' ' ";
+
+                            @$page_query = mysqli_query($GLOBALS[con],$page_sql);
+        
                         ?>
-                    </div>
+                        <tbody style="background-color: white;">
+                            <tr>
+                            <?php
+                                while($row = mysqli_fetch_assoc($page_query)){
+        
+                            ?>
+                                <th scope="row"><?php echo $row['tid']; ?></th>
+                                <td><?php echo $row['title']; ?></td>
+                                <td><?php echo $row['c_title']; ?></td>
+                                <td><?php echo $row['PPT']; ?></td>
+                                <td>
+                                    <a href="downloadFile.php?title=<?php echo $row['title']?>&PPT=<?php echo $row['PPT']?>">下载</a>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                        </tbody>       
+                    </table>
                 </div>
             </div>
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-md-offset-1">
+            <ul class="pager">
+                <li class="previous disabled"><a href="#">&larr; Older</a></li>
+                <li class="next disabled"><a href="#">Newer &rarr;</a></li>
+            </ul>
         </div>
     </div>
 </div>
  
-<div class="container" id="1" style="margin-top:28px;">
-    <div class="row">
-        <div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-md-offset-1">
-            <div class="row">
-                <div id="containerl" class="col-md-12 col-sm-12 col-xs-12">
-                    <center>
-                    <nav>
-                        <ul class="pagination ">
-                            <li>
-                                <a href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    </center>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 </body>
 </html>
