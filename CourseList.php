@@ -81,16 +81,25 @@
         if(isset($_SESSION['name'])){
             //如果登录了，显示用户名，改变模态框的链接
             $word=$_SESSION['name'];
-            $modal='m';
+            $modal='dropdown';
+            $display = 'yes';
+            $data_target = '1';
         } else{
             $word='登录';
             $modal='modal';
-            
+            $display = 'none';
+            $data_target = '#mymodal';
         }
     ?>
     
-    <div class="link2">
-        <a href="javascript:void(0)" style="color: black;" class="btn_login" id="btn_showlogin" data-toggle="<?php echo $modal; ?>" data-target="#mymodal"><?php echo $word; ?></a>
+    <div class="dropdown link2">
+        <a type="button" class="dropdown-toggle btn_login" id="btn_showlogin" style="color:black;" href="javascript:void(0)" data-toggle="<?php echo $modal; ?>" data-target="<?php echo $data_target;?>">
+            <?php echo $word; ?>
+            <span class="caret"  style="display: <?php echo $display; ?>;"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="display:<?php echo $display; ?>;">
+            <li><a href="logout.php" style="color: black;">注销登录</a></li>
+        </ul>
     </div>
     <div class="link" >
             <a href="download.php" style="color: black;">下载中心</a>
