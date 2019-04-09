@@ -10,7 +10,7 @@ function getList($title,$c_title,$re_id=0,&$result=array(),$spac=0){
 
     // TODO:把div设置成缩进方式
 
-    $spac = $spac + 5;
+    // $spac = $spac + 5;
 
     $sql="select * from comment WHERE re_id='$re_id' and title like '$title' and c_title like '$c_title' ";
 
@@ -20,7 +20,7 @@ function getList($title,$c_title,$re_id=0,&$result=array(),$spac=0){
 
         while($row = mysqli_fetch_assoc($query)){
 
-            $row['comment'] = str_repeat('&nbsp;&nbsp;',$spac).$row['comment'];
+            // $row['comment'] = str_repeat('&nbsp;&nbsp;',$spac).$row['comment'];
 
             $result[] = $row;
 
@@ -112,6 +112,34 @@ function getNo($title,$c_title,$re_id=0,&$result=array(),$spac=0){
 
 }
 
+//获取回复的用户名
+function getReplay($re_id){
+    $sql = "select * from comment WHERE id='$re_id'";
+
+    @$query=mysqli_query($GLOBALS[con],$sql);
+
+    if($query&&mysqli_num_rows($query)){
+
+        while($row = mysqli_fetch_assoc($query)){
+
+            $replay = $row['user'];
+
+        }
+
+    }
+
+    if($replay == ""){
+
+        $replay = "匿名";
+
+    }else{
+
+        return $replay;
+
+    }
+    return $replay;
+}
+
 function displayCate($re_id=0,$title,$c_title,$selected=1){
 
     $rs = getList($title,$c_title,$re_id);
@@ -143,7 +171,19 @@ function displayCate($re_id=0,$title,$c_title,$selected=1){
             $color='bd-callout-info';
         }
 
-        $str.= "<div class='bd-callout ".$color."'>".$val['comment']."
+        if($val['user'] == ''){
+            $user = "匿名";
+        }else{
+            $user = $val['user'];
+        }
+
+        if($val['re_id'] == 0){
+            $replay = "";
+        }else{
+            $replay = " replay ".getReplay($val['re_id']);
+        }
+
+        $str.= "<img style='width:30px;height:30px;' src='img/touxiang.jpg'/><p style='margin-top:-20px;margin-left:40px;'>".$user.$replay."</p><div class='bd-callout ".$color."'>".$val['comment']."
         <a data-toggle='modal' data-target='#exampleModal' data-whatever='".$val['id']."' data-whatevery='".$val['tag']."'>回复</a></div>";
 
     }
@@ -171,7 +211,19 @@ function displayBest($re_id=0,$title,$c_title,$selected=1){
 
         }
 
-        $str.= "<div class='bd-callout bd-callout-info'>".$val['comment']."
+        if($val['user'] == ''){
+            $user = "匿名";
+        }else{
+            $user = $val['user'];
+        }
+
+        if($val['re_id'] == 0){
+            $replay = "";
+        }else{
+            $replay = " replay ".getReplay($val['re_id']);
+        }
+
+        $str.= "<img style='width:30px;height:30px;' src='img/touxiang.jpg'/><p style='margin-top:-20px;margin-left:40px;'>".$user.$replay."</p><div class='bd-callout bd-callout-info'>".$val['comment']."
         <a data-toggle='modal' data-target='#exampleModal' data-whatever='".$val['id']."' data-whatevery='".$val['tag']."'>回复</a></div>";
 
     }
@@ -198,7 +250,19 @@ function displayOk($re_id=0,$title,$c_title,$selected=1){
 
         }
 
-        $str.= "<div class='bd-callout bd-callout-success'>".$val['comment']."
+        if($val['user'] == ''){
+            $user = "匿名";
+        }else{
+            $user = $val['user'];
+        }
+
+        if($val['re_id'] == 0){
+            $replay = "";
+        }else{
+            $replay = " replay ".getReplay($val['re_id']);
+        }
+
+        $str.= "<img style='width:30px;height:30px;' src='img/touxiang.jpg'/><p style='margin-top:-20px;margin-left:40px;'>".$user.$replay."</p><div class='bd-callout bd-callout-success'>".$val['comment']."
         <a data-toggle='modal' data-target='#exampleModal' data-whatever='".$val['id']."' data-whatevery='".$val['tag']."'>回复</a></div>";
 
     }
@@ -225,7 +289,19 @@ function displayNo($re_id=0,$title,$c_title,$selected=1){
 
         }
 
-        $str.= "<div class='bd-callout bd-callout-danger'>".$val['comment']."
+        if($val['user'] == ''){
+            $user = "匿名";
+        }else{
+            $user = $val['user'];
+        }
+
+        if($val['re_id'] == 0){
+            $replay = "";
+        }else{
+            $replay = " replay ".getReplay($val['re_id']);
+        }
+
+        $str.= "<img style='width:30px;height:30px;' src='img/touxiang.jpg'/><p style='margin-top:-20px;margin-left:40px;'>".$user.$replay."</p><div class='bd-callout bd-callout-danger'>".$val['comment']."
         <a data-toggle='modal' data-target='#exampleModal' data-whatever='".$val['id']."' data-whatevery='".$val['tag']."'>回复</a></div>";
 
     }
