@@ -367,8 +367,8 @@
         </script>
 
         <div class="row">
-            <div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-md-offset-1 " style="margin-top: 28px;">
-                <div style="background-color:#FFF; height: 1000px;">
+            <div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-md-offset-1 " style="margin-top: 28px; background-color: white;">
+                <div>
                     <div>
                         <font style="width:150px; float:left; font-family:Tahoma, Geneva, sans-serif; font-size: 24px;margin:14px auto">
                             &nbsp;&nbsp;答疑&解惑
