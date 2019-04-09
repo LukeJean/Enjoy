@@ -80,7 +80,7 @@
     <!-- bootstrap框架 -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-
+    <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/doc.css">
 
 
@@ -88,8 +88,8 @@
     
     <script src="js/bootstrap.min.js"></script>
 
-    <!--必要样式-->
-    <link rel="stylesheet" type="text/css" href="css/mainl.css" /><!-- 自己写的样式 -->
+    <!--必要样式 自己写的样式-->
+    <link rel="stylesheet" type="text/css" href="css/mainl.css" />
 
     <!-- 背景颜色 -->
     <link rel="stylesheet" type="text/css" href="css/reset.css">
@@ -99,7 +99,7 @@
     <!-- <link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/font_884665_myedel9jrs.css"> -->
 
     <!-- 评论  不能删-->
-    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+    <!-- <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script> -->
 
 
     <style type="text/css">
@@ -130,16 +130,25 @@
             if(isset($_SESSION['name'])){
             //如果登录了，显示用户名，改变模态框的链接
                 $word=$_SESSION['name'];
-                $modal='m';
+                $modal='dropdown';
+                $display = 'yes';
+                $data_target = '1';
                 $re_name = $_SESSION['name'];
             } else{
                 $word='登录';
                 $modal='modal';
-                $re_name = "匿名";
+                $display = 'none';
+                $data_target = '#mymodal';
             }
         ?>
-        <div class="link2" style=" font-size: 15px; margin-top:5px;">
-            <a href="javascript:void(0)" style="color: black;" class="btn_login" id="btn_showlogin" data-toggle="<?php echo $modal; ?>" data-target="#mymodal"><?php echo $word; ?></a>
+        <div class="dropdown link2">
+            <a type="button" class="dropdown-toggle btn_login" id="btn_showlogin" style="color:black; font-size: 15px;" href="javascript:void(0)" data-toggle="<?php echo $modal; ?>" data-target="<?php echo $data_target;?>">
+            <?php echo $word; ?>
+                <span class="caret"  style="display: <?php echo $display; ?>;"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="display:<?php echo $display; ?>;">
+                <li><a href="logout.php" style="color: black;">注销登录</a></li>
+            </ul>
         </div>
         <div class="link" style=" font-size: 15px; margin-top:5px;">
             <a href="download.php" style="color: black;">下载中心</a>
