@@ -80,14 +80,7 @@
     <!-- bootstrap框架 -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/doc.css">
-
-
-
-    
-    <script src="js/bootstrap.min.js"></script>
-
     <!--必要样式 自己写的样式-->
     <link rel="stylesheet" type="text/css" href="css/mainl.css" />
 
@@ -97,11 +90,6 @@
     <!-- 播放器 -->
     <!-- <link rel="stylesheet" href="./css/video.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/font_884665_myedel9jrs.css"> -->
-
-    <!-- 评论  不能删-->
-    <!-- <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script> -->
-
-
     <style type="text/css">
         a{
             text-decoration:none;
@@ -485,8 +473,9 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="exampleModalLabel">回复</h4>
                 </div>
-                <div class="modal-body">
-                    <form role="form" action="replay.php?title=<?php echo $title; ?>&c_title=<?php echo $c_title; ?>" method="post">
+                <form role="form" action="replay.php?title=<?php echo $title; ?>&c_title=<?php echo $c_title; ?>" method="post">
+                    <div class="modal-body">
+                    
                         <div class="form-group">
                             <input type="hidden" class="form-control" id="recipient-name" name='recipient-name'>
                         </div>
@@ -497,11 +486,11 @@
                             <textarea class="form-control" id="message-text" rows='5' name='message-text'></textarea>
                         </div>
         
-                </div>
-                <div class="modal-footer">
-                    <input type="submit" class="btn btn-primary" value='回复'>
-                </div>
-                    </form>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" value='回复'>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
